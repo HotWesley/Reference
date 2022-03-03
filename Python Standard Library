@@ -1,0 +1,56 @@
+#sum()
+result = sum([1,2,3,4,5]) 
+> 15
+
+#min(), max()
+min_result = min(2,6,4,3) 
+> 2
+max_result = max(2,6,4,3) 
+> 6
+
+#eval()
+result = eval("3+5") 
+> 8
+
+#sorted()
+result = sorted([9,1,8,5,4]) 
+> 1 4 5 8 9 (asending)
+result = sorted([9,1,8,5,4], reverse = True) 
+> 9 8 5 4 1 (descending)
+
+#sorted() with key
+array = [('홍길동',35), ('이순신',75), ('아무개',50)]
+result = sorted(array, key = lamda x:x[1], reverse : True)
+> [('이순신',75), ('아무개',50), ('홍길동',35)]
+
+#permutations
+from itertools import permutations
+data = ['A', 'B', 'C']
+result = list(permutations(data,3)) # A, B, C 3개를 골라 순서를 고려하여 나열
+
+#combinations
+from itertools import combinations
+data = ['A', 'B', 'C']
+result = list(combinations(data, 2)) # 2개를 뽑아 모든 조합 구하기
+> A,B / A,C / B,C
+
+# 중복 순열
+from itertools import product
+data = ['A', 'B', 'C']
+result = list(product(data, repeat =2)) # 2개를 뽑는 모든 순열 구하기 (중복 허용)
+> A,A / A,B / A,C / B,A / B,B / B,C ...
+
+# 중복 조합
+from itertools import combinations_with_replacement
+data = ['A', 'B', 'C']
+result = list(combinations_with_replacement(data, 2)) # 2개를 뽑는 모든 조합 구하기 (중복 허용)
+> A,A / A,B / A,C / B,A / B,B / B,C ...
+
+#Counter
+from collections import Counter
+counter = Counter(['red', 'green', 'blue', 'blue', 'green', 'blue', 'blue','red'])
+print(counter['red']) 
+> 2
+print(dict[counter])
+> {'red':2, 'green':2, 'blue':4} # 사전 자료형 반환
+
