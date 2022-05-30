@@ -1,3 +1,15 @@
+# permutation
+def permutations(array, r):
+    for i in range(len(array)):
+        if r == 1:
+            yield [array[i]]
+        else:
+            for next in permutations(array[:i] + array[i + 1:], r - 1):
+                yield [array[i]] + next
+
+
+result = permutations([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)
+
 # 입력을 리스트로 치환
 d[i] = list(map(int, input().split()))
 
