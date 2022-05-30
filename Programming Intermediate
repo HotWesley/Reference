@@ -11,27 +11,16 @@
 - 서로 다른 것들 중 몇개를 뽑아서 한줄로 나열
 - 1,2,3 을 포함하는 모든 순열을 생성하는 함수?
 ex) 
-result = []
+def permutations(array, r):
+    for i in range(len(array)):
+        if r == 1:
+            yield [array[i]]
+        else:
+            for next in permutations(array[:i] + array[i + 1:], r - 1):
+                yield [array[i]] + next
 
 
-def swap(ch, i, j):
-    temp = ch[i]
-    ch[i] = ch[j]
-    ch[j] = temp
-
-
-def permutations(ch, curr_index=0):
-    if curr_index == len(ch) - 1:
-        result.append(''.join(ch))
-    for i in range(curr_index, len(ch)):
-        swap(ch, curr_index, i)
-        permutations(ch, curr_index + 1)
-        swap(ch, curr_index, i)
-
-
-s = '235777'
-
-permutations(s)
+result = permutations([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)
 
 
 그리디 알고리즘
